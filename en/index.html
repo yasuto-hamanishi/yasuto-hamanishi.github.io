@@ -19,7 +19,7 @@
   "birthDate": "1959-10-11",
   "nationality": "Japanese",
   "url": "https://yasuto-hamanishi.github.io/en/",
- "image": [
+  "image": [
     "https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg",
     "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg"
   ],
@@ -45,7 +45,7 @@
 <style>
   body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0;padding:24px;background:#fafafa;color:#111}
   .card{max-width:960px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:28px}
-  img{max-width:160px;border-radius:12px;display:block}
+  .photos img{max-width:160px;border-radius:12px;display:block;margin-bottom:12px}
   .grid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start}
   h1{margin:0 0 6px}
   .muted{color:#666}
@@ -59,7 +59,12 @@
   <main class="card">
     <div class="lang">Language: <a href="/">日本語</a> ｜ <strong>English</strong></div>
     <div class="grid">
-      <div><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg" alt="Yasuto Hamanishi"></div>
+      <div class="photos">
+        <!-- Photo #1 -->
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg" alt="Yasuto Hamanishi" loading="lazy">
+        <!-- Photo #2 -->
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg" alt="Yasuto Hamanishi (Mizuho)" loading="lazy">
+      </div>
       <div>
         <h1>Yasuto Hamanishi <span class="muted">/ 浜西 泰人</span></h1>
         <p class="muted">Japanese business executive and former banker.</p>
