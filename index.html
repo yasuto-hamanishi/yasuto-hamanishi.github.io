@@ -19,10 +19,10 @@
   "birthDate": "1959-10-11",
   "nationality": "日本",
   "url": "https://yasuto-hamanishi.github.io/",
-"images": [
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg"
-],
+  "image": [
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg",
+    "https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg"
+  ],
   "worksFor": [{
     "@type": "Organization",
     "name": "シンプレクス・ホールディングス株式会社",
@@ -45,7 +45,7 @@
 <style>
   body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0;padding:24px;background:#fafafa;color:#111}
   .card{max-width:960px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:28px}
-  img{max-width:160px;border-radius:12px;display:block}
+  .photos img{max-width:160px;border-radius:12px;display:block;margin-bottom:12px}
   .grid{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start}
   h1{margin:0 0 6px}
   .muted{color:#666}
@@ -59,7 +59,12 @@
   <main class="card">
     <div class="lang">言語：<strong>日本語</strong> ｜ <a href="/en/">English</a></div>
     <div class="grid">
-      <div><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg" alt="Yasuto Hamanishi"></div>
+      <div class="photos">
+        <!-- 1枚目 -->
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto%20Hamanishi.jpg" alt="Yasuto Hamanishi" loading="lazy">
+        <!-- 2枚目 -->
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg" alt="浜西泰人（みずほ）" loading="lazy">
+      </div>
       <div>
         <h1>浜西 泰人 <span class="muted">/ Yasuto Hamanishi</span></h1>
         <p class="muted">日本の実業家、元銀行家。</p>
