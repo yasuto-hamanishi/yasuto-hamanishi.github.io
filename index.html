@@ -5,8 +5,20 @@
   <title>浜西 泰人 / Yasuto Hamanishi – Official Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root{--maxw:1000px;--gap:24px;--muted:#666;--border:#e6e6e6;}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;line-height:1.7;margin:0;background:#fff;color:#111;}
+    :root{
+      --maxw: 1000px;
+      --gap: 24px;
+      --muted: #666;
+      --border:#e6e6e6;
+      /* 写真サイズはここで微調整（例: 170〜200px） */
+      --photo-max: 180px;
+      --photo-gap: 12px;
+    }
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,
+        "Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
+      line-height:1.7;margin:0;background:#fff;color:#111;
+    }
     .wrap{max-width:var(--maxw);margin:24px auto;padding:0 16px;}
     .titlebar{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
     .tname-ja,.tname-en{font-size:clamp(20px,4.2vw,34px);font-weight:750;margin:0;cursor:pointer}
@@ -14,21 +26,30 @@
     .lang-note{font-size:14px;color:var(--muted)}
     .card{margin-top:18px;border:1px solid var(--border);border-radius:14px;padding:20px}
     .hero{display:grid;grid-template-columns:260px 1fr;gap:var(--gap);}
-    .photos{display:flex;flex-direction:column;gap:12px;max-width:260px}
-    .photos img{width:100%;height:auto;object-fit:contain;border-radius:10px;display:block}
+    .photos{
+      display:flex;flex-direction:column;gap:var(--photo-gap);max-width:260px;align-self:start;
+    }
+    .photos img{
+      width:100%;height:auto;max-height:var(--photo-max);
+      object-fit:contain;border-radius:10px;display:block;
+    }
     .kv dt{font-weight:700}
     .kv dd{margin:0 0 10px 0}
-    .sources{margin-top:18px;border-top:1px dashed var(--border);padding-top:16px}
-    .sources li{margin:.2em 0}
     h2{margin:32px 0 8px;border-bottom:2px solid var(--border);padding-bottom:6px}
-    h3{margin:20px 0 6px}
+    h3{margin:20px 0 8px}
     ul{padding-left:20px;margin:6px 0}
     a{color:#1a5ad7;text-decoration:none}
     a:hover{text-decoration:underline}
+    .sources{margin-top:12px;border-top:1px dashed var(--border);padding-top:12px}
+    .sources li{margin:.2em 0}
     /* 言語切替 */
-    .lang-ja .toggle.en,.lang-en .toggle.ja{display:none}
+    .lang-ja .toggle.en, .lang-en .toggle.ja{display:none}
     .footnotes li{font-size:0.95em}
-    @media (max-width:760px){.hero{grid-template-columns:1fr}.photos{max-width:100%}}
+    @media (max-width:760px){
+      .hero{grid-template-columns:1fr}
+      .photos{max-width:100%}
+      .photos img{max-height:none}
+    }
   </style>
 </head>
 <body class="lang-ja">
@@ -45,7 +66,7 @@
     <p class="ja toggle"><strong>日本の実業家、元投資銀行家。</strong></p>
     <p class="en toggle"><strong>Japanese business executive and former investment banker.</strong></p>
 
-    <!-- まとめカード -->
+    <!-- まとめカード（写真＋右カラム：前職→現職→生年月日→専門分野→情報源） -->
     <div class="card">
       <div class="hero">
         <!-- 左：写真（2枚縦） -->
@@ -54,144 +75,164 @@
           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg" alt="浜西泰人（みずほ）">
         </div>
 
-        <!-- 右：基本情報（JA/EN） -->
+        <!-- 右：基本情報（JA/EN）＋ 専門分野（イントロ内）＋ 情報源 -->
         <div>
+          <!-- JA 基本情報 -->
           <dl class="kv ja toggle">
             <dt>前職：</dt>
             <dd>元みずほ証券 副社長執行役員</dd>
+
             <dt>現職：</dt>
-            <dd>シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>Axil Capital Advisors エグゼクティブ・アドバイザー<br>Strategy Advisors Inc. エグゼクティブ・アドバイザー</dd>
+            <dd>
+              シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>
+              Axil Capital Advisors エグゼクティブ・アドバイザー<br>
+              Strategy Advisors Inc. エグゼクティブ・アドバイザー
+            </dd>
+
             <dt>生年月日：</dt>
             <dd>1959年10月11日</dd>
           </dl>
 
+          <!-- EN 基本情報 -->
           <dl class="kv en toggle">
             <dt>Former role:</dt>
-            <dd>Former Vice President & Executive Officer, Mizuho Securities Co., Ltd.</dd>
+            <dd>Former Vice President &amp; Executive Officer, Mizuho Securities Co., Ltd.</dd>
+
             <dt>Current roles:</dt>
-            <dd>Outside Director (Audit Committee Member), Simplex Holdings, Inc.<br>Executive Advisor, Axil Capital Advisors<br>Executive Advisor, Strategy Advisors Inc.</dd>
+            <dd>
+              Outside Director (Audit &amp; Supervisory Committee Member), Simplex Holdings, Inc.<br>
+              Executive Advisor, Axil Capital Advisors<br>
+              Executive Advisor, Strategy Advisors Inc.
+            </dd>
+
             <dt>Date of birth:</dt>
             <dd>October 11, 1959</dd>
           </dl>
+
+          <!-- JA 専門分野（イントロ内へ移動） -->
+          <div class="ja toggle">
+            <h3>専門分野</h3>
+            <ul>
+              <li>M&amp;Aアドバイザリー</li>
+              <li>資本市場戦略（Equity / Debt / IPO / IRコンサル）</li>
+              <li>コーポレート・ガバナンス</li>
+              <li>ベンチャー投資・ファンド運営</li>
+            </ul>
+          </div>
+
+          <!-- EN Expertise（イントロ内へ配置） -->
+          <div class="en toggle">
+            <h3>Expertise</h3>
+            <ul>
+              <li>M&amp;A advisory</li>
+              <li>Capital markets strategy (Equity / Debt / IPO / IR advisory)</li>
+              <li>Corporate governance</li>
+              <li>Venture investment &amp; fund management</li>
+            </ul>
+          </div>
+
+          <!-- 情報源（直下に配置） -->
+          <div class="sources ja toggle">
+            <h3>公式・信頼できる情報源</h3>
+            <ul>
+              <li><a href="https://www.simplex.holdings/news/2022/1139/" target="_blank">シンプレクス・ホールディングス – 取締役就任リリース（2022/6/6）</a></li>
+              <li><a href="https://www.axilcapital.com/news221101" target="_blank">Axil Capital Advisors – エグゼクティブ・アドバイザー就任（2022/11/1）</a></li>
+              <li><a href="https://www.strategy-advisors.co.jp/members/" target="_blank">Strategy Advisors – メンバー紹介</a></li>
+              <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">みずほフィナンシャルグループ – ニュースリリース</a></li>
+            </ul>
+          </div>
+
+          <div class="sources en toggle">
+            <h3>Official / Reliable Sources</h3>
+            <ul>
+              <li><a href="https://www.simplex.holdings/news/2022/1139/" target="_blank">Simplex Holdings – Appointment release (June 6, 2022)</a></li>
+              <li><a href="https://www.axilcapital.com/news221101" target="_blank">Axil Capital Advisors – Executive Advisor appointment (Nov 1, 2022)</a></li>
+              <li><a href="https://www.strategy-advisors.co.jp/members/" target="_blank">Strategy Advisors – Members</a></li>
+              <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">Mizuho Financial Group – Press releases</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-
-      <!-- 情報源（JA/EN） -->
-      <div class="sources ja toggle">
-        <h3>公式・信頼できる情報源</h3>
-        <ul>
-          <li><a href="https://www.simplex.holdings/news/2022/1139/" target="_blank">シンプレクス・ホールディングス – 取締役就任リリース（2022/6/6）</a></li>
-          <li><a href="https://www.axilcapital.com/news221101" target="_blank">Axil Capital Advisors – エグゼクティブ・アドバイザー就任（2022/11/1）</a></li>
-          <li><a href="https://www.strategy-advisors.co.jp/members/" target="_blank">Strategy Advisors – メンバー紹介</a></li>
-          <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">みずほフィナンシャルグループ – ニュースリリース</a></li>
-        </ul>
-      </div>
-
-      <div class="sources en toggle">
-        <h3>Official / Reliable Sources</h3>
-        <ul>
-          <li><a href="https://www.simplex.holdings/news/2022/1139/" target="_blank">Simplex Holdings – Appointment release (June 6, 2022)</a></li>
-          <li><a href="https://www.axilcapital.com/news221101" target="_blank">Axil Capital Advisors – Executive Advisor appointment (Nov 1, 2022)</a></li>
-          <li><a href="https://www.strategy-advisors.co.jp/members/" target="_blank">Strategy Advisors – Members</a></li>
-          <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">Mizuho Financial Group – Press releases</a></li>
-        </ul>
       </div>
     </div>
 
-    <!-- 日本語：本文ブロック -->
+    <!-- ===== 本文：JA ===== -->
     <section class="ja toggle">
       <h2>略歴</h2>
       <ul>
         <li>1959年生まれ。</li>
         <li>1984年、日本興業銀行（現みずほ銀行）に入行。</li>
         <li>1995年、興銀証券にて銀行系証券で初めて関西電力の社債主幹事を獲得、電力債市場へ参入。以後の社債引受シェア拡大の契機に［注1］。</li>
-        <li>2012年、みずほ証券 執行役員・グローバル資本市場グループ長。</li>
+        <li>2012年、みずほ証券 執行役員・グローバル資本市場グループ長（Executive Officer, Head of Global Capital Markets）。</li>
         <li>2015年、RBS北米ローン資産取得に関与し米州DCM拡大を推進［注2］。</li>
-        <li>2015年、みずほFG常務執行役員／みずほ証券 常務執行役員（国内営業担当・IPO総括）。</li>
-        <li>2016年、IPO主幹事件数で初の首位（KPMG）［注3］。</li>
-        <li>2017年〜2021年、みずほ証券 専務執行役員・グローバル投資銀行部門長。2018〜2021年度、国内公募債・普通社債引受で首位を維持、IFR「Yen Bond House of the Year」受賞［注4］。SDGs債でも2019〜2021年度3年連続首位［注5］。</li>
+        <li>2015年、みずほFG 常務執行役員／みずほ証券 常務執行役員（国内営業・IPO総括）。</li>
+        <li>2016年、IPO主幹事件数で首位（KPMG）［注3］。</li>
+        <li>2017〜2021年、みずほ証券 専務執行役員（Senior Managing Executive Officer）・グローバル投資銀行部門長。2018〜2021年度で国内公募債・普通社債引受首位、IFR「Yen Bond House of the Year」受賞［注4］。SDGs債でも2019〜2021年度首位［注5］。</li>
         <li>2018年、Mizuho Securities USA 取締役就任。</li>
-        <li>2019年、Perella Weinberg Partners とグローバルM&amp;A戦略提携を主導［注6］。</li>
-        <li>2019年、財務省の日本郵政株 第3次売出しで、みずほ証券が主幹事兼GC（グローバル・コーディネーター）に選定。2021年案件を遂行［注7］。</li>
-        <li>2021年、みずほ証券 副社長執行役員。2022年4月 理事、同年6月退任。</li>
-      </ul>
-
-      <h2>専門分野</h2>
-      <ul>
-        <li>M&amp;Aアドバイザリー</li>
-        <li>資本市場戦略（Equity / Debt / IPO / IRコンサル）</li>
-        <li>コーポレート・ガバナンス</li>
-        <li>ベンチャー投資・ファンド運営</li>
+        <li>2019年、Perella Weinberg Partners とグローバルM&amp;A提携を主導［注6］。</li>
+        <li>2019年、日本郵政株 第3次売出しで主幹事兼GCに選定（2021年に取引実行）［注7］。</li>
+        <li>2021年、みずほ証券 副社長執行役員（Vice President &amp; Executive Officer）。2022年4月 理事、同年6月退任。</li>
       </ul>
 
       <h2>受賞歴</h2>
       <ul>
-        <li>IFR「Yen Bond House of the Year」受賞（2018〜2021年度、連続）［注4］</li>
-        <li>Refinitiv DealWatch「Bond House of the Year」受賞（2021年）［注8］</li>
-        <li>RIEFサステナブルファイナンス大賞 優秀賞（2020・2021年、SDGs債での首位実績による）［注9］</li>
+        <li>IFR「Yen Bond House of the Year」（2018〜2021年、連続）［注4］</li>
+        <li>Refinitiv DealWatch「Bond House of the Year」（2021年）［注8］</li>
+        <li>RIEF サステナブルファイナンス大賞 優秀賞（2020・2021年、SDGs債での首位実績）［注9］</li>
       </ul>
 
       <h2>講演</h2>
       <ul>
-        <li>2019年3月、朝日新聞社主催フォーラム「SDGsで未来を拓く」にて「SDGs債と企業価値」を講演［注10］</li>
-        <li>2020年2月、日経主催「ESG進化のチャレンジ2020」に登壇（ESG債市場の展望）［注11］</li>
-        <li>2021年10月、金融財界人会議にて「資本市場とサステナブルファイナンス」基調講演［注12］</li>
+        <li>2019年3月、朝日新聞社主催フォーラム「SDGsで未来を拓く」にて「SDGs債と企業価値」［注10］</li>
+        <li>2020年2月、日経「ESG進化のチャレンジ2020」登壇（ESG債市場の展望）［注11］</li>
+        <li>2021年10月、金融財界人会議「資本市場とサステナブルファイナンス」基調講演［注12］</li>
       </ul>
 
       <h2>脚注</h2>
       <ol class="footnotes">
         <li>［注1］日本経済新聞（1995年5月）、『興銀百年史』</li>
-        <li>［注2］Reuters「Mizuho to acquire RBS’s North American loan assets」（2015年）</li>
+        <li>［注2］Reuters “Mizuho to acquire RBS’s North American loan assets”（2015年）</li>
         <li>［注3］KPMG Japan「IPOレビュー（2016年上半期）」</li>
         <li>［注4］IFR「Yen Bond House of the Year」（2018〜2021年）</li>
-        <li>［注5］RIEF記事・ニッキンONLINE等（2019〜2021年のSDGs債シェア首位）</li>
+        <li>［注5］RIEF・ニッキンONLINE（2019〜2021年度のSDGs債シェア首位）</li>
         <li>［注6］Perella Weinberg Partners プレスリリース（2019年）</li>
-        <li>［注7］財務省「日本郵政株式第3次売出し 主幹事証券会社の選定について」（2019年5月）、ロイター（2019年5月）</li>
+        <li>［注7］財務省リリース（2019年5月）／ロイター（2019年5月）</li>
         <li>［注8］Refinitiv DealWatch Awards（2021年）</li>
         <li>［注9］RIEF「サステナブルファイナンス大賞」授賞記事（2020・2021年）</li>
-        <li>［注10］朝日新聞デジタル広告特集「SDGsで未来を拓く」（2019年3月）</li>
-        <li>［注11］日本経済新聞 夕刊 広告記事「ESG進化のチャレンジ2020」（2020年2月）</li>
+        <li>［注10］朝日新聞デジタル特集（2019年3月）</li>
+        <li>［注11］日本経済新聞 夕刊 広告特集（2020年2月）</li>
         <li>［注12］金融財界人会議プログラム（2021年10月）</li>
       </ol>
     </section>
 
-    <!-- 英語：本文ブロック -->
+    <!-- ===== 本文：EN ===== -->
     <section class="en toggle">
       <h2>Biography</h2>
       <ul>
         <li>Born in 1959.</li>
         <li>Joined The Industrial Bank of Japan (now Mizuho Bank) in 1984.</li>
-        <li>In 1995 at IBJ Securities, led the first-ever mandate by a bank-affiliated securities firm as bookrunner for Kansai Electric Power’s corporate bond, marking entry into the power bond market and paving the way for later league-table gains in Japan’s bond underwriting. [Ref-1]</li>
-        <li>Appointed Head of Global Capital Markets (Executive Officer), Mizuho Securities in 2012.</li>
-        <li>In 2015, involved in Mizuho’s acquisition of RBS’s North American loan assets, expanding the US DCM franchise. [Ref-2]</li>
-        <li>Also in 2015, became Managing Executive Officer at Mizuho Financial Group and Managing Executive Officer at Mizuho Securities (Domestic Sales / IPO oversight).</li>
-        <li>In H1 2016, Mizuho Securities ranked No.1 by number of IPO lead mandates (KPMG). [Ref-3]</li>
-        <li>Head of Global Investment Banking (Senior Managing Executive Officer), 2017–2021. From FY2018–FY2021, Mizuho led Japan’s public/straight bond underwriting and received IFR’s “Yen Bond House of the Year”. SDGs/ESG bonds: No.1 in Japan for FY2019–FY2021. [Ref-4, Ref-5]</li>
+        <li>In 1995 at IBJ Securities, secured the bookrunner mandate for Kansai Electric Power’s corporate bond—the first such mandate for a bank-affiliated securities house—opening the door to the power bond market and subsequent gains in Japan’s bond underwriting league tables. [Ref-1]</li>
+        <li>Appointed <em>Executive Officer, Head of Global Capital Markets</em>, Mizuho Securities (2012).</li>
+        <li>In 2015, contributed to Mizuho’s acquisition of RBS’s North American loan assets, expanding the US DCM franchise. [Ref-2]</li>
+        <li>Also in 2015, became <em>Managing Executive Officer</em> at Mizuho Financial Group and Mizuho Securities (Domestic Sales / IPO oversight).</li>
+        <li>No.1 by IPO lead mandates in H1 2016 (KPMG). [Ref-3]</li>
+        <li><em>Senior Managing Executive Officer</em>, Head of Global Investment Banking (2017–2021). From FY2018 to FY2021, Mizuho ranked No.1 in Japan’s public/straight bond underwriting and received IFR “Yen Bond House of the Year”. SDGs/ESG bonds: No.1 in Japan for FY2019–FY2021. [Ref-4,5]</li>
         <li>Director, Mizuho Securities USA (from 2018).</li>
-        <li>In 2019, led a strategic global M&amp;A alliance with Perella Weinberg Partners. [Ref-6]</li>
-        <li>Japan Post share sale (3rd tranche): Ministry of Finance selected Mizuho as Global Coordinator (with others) in 2019; transaction executed in 2021. [Ref-7]</li>
-        <li>Vice President & Executive Officer, Mizuho Securities in 2021; Director in April 2022; stepped down in June 2022.</li>
-      </ul>
-
-      <h2>Expertise</h2>
-      <ul>
-        <li>M&amp;A advisory</li>
-        <li>Capital markets strategy (Equity / Debt / IPO / IR advisory)</li>
-        <li>Corporate governance</li>
-        <li>Venture investment & fund management</li>
+        <li>Led a strategic global M&amp;A alliance with Perella Weinberg Partners (2019). [Ref-6]</li>
+        <li>Japan Post share sale (3rd tranche): selected as Global Coordinator by Japan’s MoF in 2019; executed in 2021. [Ref-7]</li>
+        <li><em>Vice President &amp; Executive Officer</em>, Mizuho Securities (2021); Director in April 2022; stepped down in June 2022.</li>
       </ul>
 
       <h2>Awards</h2>
       <ul>
-        <li>IFR “Yen Bond House of the Year” (consecutive years 2018–2021). [Ref-4]</li>
+        <li>IFR “Yen Bond House of the Year” (consecutive: 2018–2021). [Ref-4]</li>
         <li>Refinitiv DealWatch “Bond House of the Year” (2021). [Ref-8]</li>
-        <li>RIEF Sustainable Finance Awards – Excellence Prize (2020 & 2021) for leadership in Japan’s SDGs bond underwriting. [Ref-9]</li>
+        <li>RIEF Sustainable Finance Awards – Excellence Prize (2020 &amp; 2021) for leadership in Japan’s SDGs bond underwriting. [Ref-9]</li>
       </ul>
 
       <h2>Talks</h2>
       <ul>
-        <li>Mar 2019, Asahi Shimbun forum “Shaping the Future with SDGs” – talk on “SDGs Bonds and Corporate Value”. [Ref-10]</li>
-        <li>Feb 2020, Nikkei “ESG Evolution Challenge 2020” – panel on ESG bond market outlook. [Ref-11]</li>
+        <li>Mar 2019, Asahi Shimbun forum “Shaping the Future with SDGs” — “SDGs Bonds and Corporate Value”. [Ref-10]</li>
+        <li>Feb 2020, Nikkei “ESG Evolution Challenge 2020” — ESG bond market outlook. [Ref-11]</li>
         <li>Oct 2021, Keynote “Capital Markets and Sustainable Finance” at a finance/industry leaders forum. [Ref-12]</li>
       </ul>
 
@@ -201,11 +242,11 @@
         <li>[Ref-2] Reuters: “Mizuho to acquire RBS’s North American loan assets” (2015).</li>
         <li>[Ref-3] KPMG Japan “IPO Review (H1 2016)”.</li>
         <li>[Ref-4] IFR “Yen Bond House of the Year” (2018–2021).</li>
-        <li>[Ref-5] RIEF / Nikkin Online coverage: Mizuho No.1 in Japan’s SDGs bond underwriting (FY2019–FY2021).</li>
+        <li>[Ref-5] RIEF / Nikkin Online coverage: Mizuho No.1 in SDGs bond underwriting (FY2019–FY2021).</li>
         <li>[Ref-6] Perella Weinberg Partners press release (2019).</li>
         <li>[Ref-7] Japan MoF release on Japan Post 3rd tranche underwriters (May 2019); Reuters (May 2019).</li>
         <li>[Ref-8] Refinitiv DealWatch Awards (2021).</li>
-        <li>[Ref-9] RIEF Sustainable Finance Awards (2020 & 2021).</li>
+        <li>[Ref-9] RIEF Sustainable Finance Awards (2020 &amp; 2021).</li>
         <li>[Ref-10] Asahi Shimbun Digital – SDGs forum feature (Mar 2019).</li>
         <li>[Ref-11] Nikkei “ESG Evolution Challenge 2020” feature (Feb 2020).</li>
         <li>[Ref-12] Program of a finance/industry leaders conference (Oct 2021).</li>
