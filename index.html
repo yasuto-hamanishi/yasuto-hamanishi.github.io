@@ -1,83 +1,148 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>浜西泰人 / Yasuto Hamanishi – Official Profile</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <title>浜西泰人 / Yasuto Hamanishi – 公式プロフィール</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="浜西泰人（Yasuto Hamanishi）公式プロフィール。日本の実業家、元投資銀行家。みずほ証券 副社長執行役員などを歴任。M&A、資本市場、コーポレート・ガバナンス、ベンチャーファイナンス。">
+
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; max-width: 900px; }
-    img { max-width: 220px; border-radius: 6px; }
-    h1 { margin-bottom: 0; }
-    h2 { border-bottom: 2px solid #ccc; padding-bottom: 4px; margin-top: 2em; }
-    .header { display: flex; align-items: flex-start; gap: 20px; }
-    .info { flex: 1; }
-    ul { margin: 0; padding-left: 20px; }
+    :root{
+      --ink:#222; --muted:#666; --line:#e7e7e7; --card:#fff; --bg:#fafafa; --brand:#0b57d0;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.7}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:20px 16px}
+    header{background:#fff;border-bottom:1px solid var(--line)}
+    .namebar{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+    .namebar a{font-weight:800}
+    .name-ja{font-size:32px}
+    .name-en{font-size:18px;color:var(--muted)}
+    .hint{font-size:12px;color:var(--muted);margin-left:4px}
+    /* まとめ（写真＋基本情報） */
+    .card{display:grid;grid-template-columns:220px 1fr;gap:20px;background:var(--card);
+      border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:16px}
+    .avatar{width:220px;height:auto;border-radius:10px}
+    .facts p{margin:.2rem 0}
+    .facts strong{display:inline-block;min-width:5.5em;color:var(--muted)}
+    /* 公式リンク */
+    .links{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px}
+    .links ul{margin:.2rem 0;padding-left:1.2rem}
+    .links li{margin:.35rem 0}
+    /* セクション見出し */
+    h2{border-bottom:2px solid var(--line);padding-bottom:6px;margin-top:28px}
+    ul.timeline{list-style:none;padding-left:0;margin:.5rem 0}
+    ul.timeline li{padding-left:0.4rem;margin:.35rem 0}
+    /* レスポンシブ */
+    @media (max-width:780px){
+      .card{grid-template-columns:1fr}
+      .avatar{width:100%;max-width:320px}
+      .name-ja{font-size:26px}
+    }
+    footer{color:var(--muted);text-align:center;padding:28px 0}
   </style>
 </head>
 <body>
 
-<div class="header">
-  <img src="your-photo.jpg" alt="Yasuto Hamanishi">
-  <div class="info">
-    <h1>浜西 泰人 / Yasuto Hamanishi</h1>
-    <p>日本の実業家、元投資銀行家。</p>
-    <p><strong>前職：</strong> 元みずほ証券 副社長執行役員<br>
-       <strong>現職：</strong> シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>
-       Axil Capital Advisors エグゼクティブ・アドバイザー<br>
-       Strategy Advisors Inc. エグゼクティブ・アドバイザー</p>
-    <p><strong>生年月日：</strong> 1959年10月11日</p>
-
-    <h3>公式・信頼できる情報源</h3>
-    <ul>
-      <li><a href="https://www.simplex.holdings/news/2022/1139/">シンプレクス・ホールディングス – 取締役就任リリース</a></li>
-      <li><a href="https://www.axilcapital.com/news221101">Axil Capital Advisors – News</a></li>
-      <li><a href="https://www.strategy-advisors.co.jp/members/">Strategy Advisors – Members</a></li>
-      <li><a href="https://www.wikidata.org/wiki/Q135824039">Wikidata</a></li>
-      <li><a href="https://ja.wikipedia.org/wiki/浜西泰人">Wikipedia（日本語）</a></li>
-    </ul>
+<header>
+  <div class="wrap">
+    <div class="namebar">
+      <!-- ④ 名前クリックで言語切替 -->
+      <a class="name-ja" href="/">浜西 泰人</a>
+      <a class="name-en" href="/en/">Yasuto Hamanishi</a>
+      <span class="hint">（名前をクリックで言語切替）</span>
+    </div>
+    <p style="margin:6px 0 14px;color:#333;">日本の実業家、元投資銀行家。</p>
   </div>
-</div>
+</header>
 
-<!-- 経歴以下を追加 -->
-<h2>略歴</h2>
-<p>1959年生まれ。1980年代に日本興業銀行（現みずほ銀行）に入行。1995年、興銀証券にて銀行系証券として初めて関西電力の社債主幹事を獲得し、電力債市場への参入を実現。その後みずほ証券が国内社債引受市場で首位シェアを築く契機となった。</p>
+<main class="wrap">
 
-<p>2012年、みずほ証券執行役員・グローバル資本市場グループ長に就任。2015年にはロイヤル・バンク・オブ・スコットランド（RBS）の北米ローン資産を取得する取引に関与し、米州デット・キャピタルマーケッツ業務拡大を推進。</p>
+  <!-- まとめ（写真＋基本情報） -->
+  <section class="card" aria-label="まとめ">
+    <img class="avatar" src="assets/images/hamanishi1.jpg" alt="浜西泰人">
+    <div class="facts">
+      <p><strong>前職</strong> 元みずほ証券 副社長執行役員</p>
+      <p><strong>現職</strong> シンプレクス・ホールディングス 取締役（社外・監査等委員）／ Axil Capital Advisors エグゼクティブ・アドバイザー／ Strategy Advisors Inc. エグゼクティブ・アドバイザー</p>
+      <p><strong>生年月日</strong> 1959年10月11日</p>
+    </div>
+  </section>
 
-<p>2015年、みずほFG常務執行役員・みずほ証券常務執行役員（IPO総括）。2016年上半期には主幹事件数で初めて首位を獲得。</p>
+  <!-- 公式リンク（Wikipediaは削除済み） -->
+  <section class="links" aria-label="公式・信頼できる情報源">
+    <h3 style="margin:0 0 .25rem">公式・信頼できる情報源</h3>
+    <ul>
+      <li><a href="https://www.simplex.holdings/news/2022/1139/" target="_blank" rel="noopener">シンプレクス・ホールディングス – 取締役就任リリース</a></li>
+      <li><a href="https://www.axilcapital.com/news221101" target="_blank" rel="noopener">Axil Capital Advisors – News</a></li>
+      <li><a href="https://www.strategy-advisors.co.jp/members/" target="_blank" rel="noopener">Strategy Advisors – Members</a></li>
+      <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank" rel="noopener">みずほフィナンシャルグループ – ニュースリリース</a></li>
+    </ul>
+  </section>
 
-<p>2017～2021年、専務執行役員・グローバル投資銀行部門長。2018～2021年度、国内公募債・普通社債市場で首位を維持。2018年 Mizuho Securities USA 取締役就任。2019年、米Perella Weinberg Partnersとの戦略的提携に関与。2019年には財務省による日本郵政株第3次売出しでGCに選定、2021年も案件を遂行。</p>
+  <!-- ① 基本情報の直後に略歴を開始 -->
+  <h2>略歴</h2>
+  <ul class="timeline">
+    <li>1959年生まれ</li>
+    <li>1984年、日本興業銀行（現みずほ銀行）に入行</li>
+    <li>1995年、興銀証券にて銀行系証券として初めて関西電力の社債主幹事を獲得、電力債市場へ参入。その後みずほ証券が国内社債引受市場で首位シェアを築く契機に</li>
+    <li>2012年、みずほ証券 執行役員・グローバル資本市場グループ長に就任</li>
+    <li>2015年、ロイヤル・バンク・オブ・スコットランド（RBS）の北米ローン資産を取得する取引に関与、米州でのデット・キャピタルマーケッツ（DCM）業務拡大を推進</li>
+    <li>2015年、みずほフィナンシャルグループ 常務執行役員、みずほ証券 常務執行役員（国内営業担当・IPO総括）に就任</li>
+    <li>2016年、IPO主幹事件数で初めて首位を獲得</li>
+    <li>2017年、みずほ証券 専務執行役員・グローバル投資銀行部門長に就任</li>
+    <li>2018～2021年、連続して国内公募債・普通社債市場で首位を維持。国際金融誌 IFR による「Yen Bond House of the Year」を受賞</li>
+    <li>2018～2021年、連続して SDGs債（グリーン・ソーシャル・サステナビリティ債）の引受額首位</li>
+    <li>2018年、Mizuho Securities USA（米国みずほ証券）取締役就任</li>
+    <li>2019年、クロスボーダーM&amp;A強化の一環として Perella Weinberg Partners との戦略的提携を主導</li>
+    <li>2019年、ECM 業務では財務省による日本郵政株 第3次売出し案件で みずほ証券が主幹事兼グローバル・コーディネーター（GC）に選定、2021年案件を遂行</li>
+    <li>2021年、副社長執行役員に就任。2022年4月 理事、同年6月 退任</li>
+  </ul>
 
-<p>2021年、副社長執行役員に就任。2022年4月理事、同年6月退任。</p>
+  <h2>現在の活動</h2>
+  <ul>
+    <li>シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）（2022年～）</li>
+    <li>Axil Capital Advisors エグゼクティブ・アドバイザー（2022年～）</li>
+    <li>Strategy Advisors Inc. エグゼクティブ・アドバイザー（2023年～）</li>
+  </ul>
 
-<h2>現在の活動</h2>
-<ul>
-  <li>シンプレクス・ホールディングス株式会社 社外取締役（2022年～）</li>
-  <li>Axil Capital Advisors エグゼクティブ・アドバイザー（2022年～）</li>
-  <li>Strategy Advisors Inc. エグゼクティブ・アドバイザー（2023年～）</li>
-</ul>
+  <h2>専門分野</h2>
+  <ul>
+    <li>M&amp;Aアドバイザリー</li>
+    <li>資本市場戦略（Equity / Debt / IPO）</li>
+    <li>コーポレート・ガバナンス</li>
+    <li>ベンチャー投資・ファイナンス</li>
+  </ul>
 
-<h2>専門分野</h2>
-<ul>
-  <li>M&Aアドバイザリー</li>
-  <li>資本市場戦略（Equity/Debt/IPO）</li>
-  <li>コーポレート・ガバナンス</li>
-  <li>ベンチャー投資・ファイナンス</li>
-</ul>
+  <h2>講演</h2>
+  <ul>
+    <li>2019年：朝日新聞社主催フォーラム「SDGsで未来を拓く」—「SDGs債と企業価値」</li>
+    <li>2020年：日本経済新聞社主催「ESG進化のチャレンジ2020」</li>
+    <li>2021年：京都大学 経営管理大学院シンポジウム</li>
+  </ul>
 
-<h2>講演</h2>
-<ul>
-  <li>2019年 朝日新聞社主催「SDGsで未来を拓く」に登壇</li>
-  <li>2020年 日本経済新聞社主催「ESG進化のチャレンジ2020」に登壇</li>
-  <li>2021年 京都大学経営管理大学院シンポジウムに登壇</li>
-</ul>
+  <!-- ② 脚注（本文セクションとして掲載） -->
+  <h2>脚注（主要出典）</h2>
+  <ul>
+    <li>『興銀百年史』／日本経済新聞（1995年5月）</li>
+    <li>Reuters: “Mizuho to acquire RBS’s North American loan assets” (2015)</li>
+    <li>KPMG Japan「IPOレビュー（2016年上半期）」</li>
+    <li>Perella Weinberg Partners: “Mizuho and Perella Weinberg Partners announce strategic alliance” (2019)</li>
+    <li>財務省：日本郵政株式 第3次売出し 主幹事証券会社の選定（2019年5月31日）／Reuters 同日報道</li>
+    <li>IFR Awards「Yen Bond House of the Year」</li>
+    <li>Refinitiv DealWatch Awards 2021「Bond House of the Year」</li>
+    <li>ニッキンONLINE・RIEF：SDGs/ESG債 引受ランキング関連記事（2019–2021年度）</li>
+    <li>シンプレクス・ホールディングス 就任リリース（2022年6月6日）</li>
+    <li>Axil Capital Advisors 就任ニュース（2022年11月1日）</li>
+    <li>Strategy Advisors Inc. メンバー紹介（最終確認 2025年8月15日）</li>
+  </ul>
 
-<h2>受賞</h2>
-<ul>
-  <li>IFR「Yen Bond House of the Year」（2020年・2021年）</li>
-  <li>Refinitiv DealWatch「Bond House of the Year」（2021年）</li>
-  <li>Environmental Finance Bond Awards 2021「Lead Manager of the Year – Green Bonds」</li>
-</ul>
+</main>
+
+<footer>
+  &copy; 2025 Yasuto Hamanishi – Official Profile
+</footer>
 
 </body>
 </html>
