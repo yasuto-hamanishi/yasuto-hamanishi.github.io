@@ -26,7 +26,8 @@
       "https://www.axilcapital.com/news221101",
       "https://www.strategy-advisors.co.jp/members/",
       "https://www.wikidata.org/wiki/Q135824039",
-      "https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.jpg"
+      "https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp",
+      "https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg"
     ]
   }
   </script>
@@ -37,8 +38,8 @@
       --gap: 24px;
       --muted:#666;
       --border:#e6e6e6;
-      --photo-max: 180px;   /* フォールバック高さ（JSが使えない環境用） */
-      --photo-gap: 12px;    /* 2枚の間の余白 */
+      --photo-max: 180px;
+      --photo-gap: 12px;
     }
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,
@@ -64,10 +65,8 @@
       display:block;
       background:#fafafa;
     }
-    /* ★ 追加：写真クレジット行 */
     .photo-credit{font-size:12px;color:var(--muted);margin-top:4px}
 
-    /* 見出しサイズ統一 */
     .card h3,
     .kv dt{
       font-size: clamp(16px, 2.1vw, 18px);
@@ -84,10 +83,8 @@
     .sources{margin-top:12px;border-top:1px dashed var(--border);padding-top:12px}
     .sources li{margin:.2em 0}
 
-    /* 言語切替 */
     .lang-ja .toggle.en, .lang-en .toggle.ja{display:none}
     .footnotes li{font-size:0.95em}
-    /* ★ 追加：脚注リンクの見た目 */
     sup.fn {font-size: 0.8em; line-height: 0; vertical-align: super;}
     .card-meta{margin-top:8px;font-size:12px;color:var(--muted)}
 
@@ -101,64 +98,51 @@
 <body class="lang-ja">
   <div class="wrap">
 
-    <!-- タイトル（クリックで言語切替） -->
     <div class="titlebar">
       <h1 class="tname-ja" onclick="setLang('ja')">浜西 泰人</h1>
       <h1 class="tname-en" onclick="setLang('en')">Yasuto Hamanishi</h1>
       <span class="lang-note">（名前をクリックで言語切替 / Click name to switch language）</span>
     </div>
 
-    <!-- イントロ -->
     <p class="ja toggle"><strong>日本の実業家、元投資銀行家。</strong></p>
     <p class="en toggle"><strong>Japanese business executive and former investment banker.</strong></p>
 
-    <!-- まとめカード -->
     <div class="card">
       <div class="hero">
-        <!-- 左：写真（2枚縦） -->
         <div class="photos" id="photosCol">
           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp" alt="Yasuto Hamanishi">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg" alt="浜西泰人（みずほ）">
-          <!-- ★ 追加：写真出典の脚注参照（JA/ENで切替） -->
-          <div class="photo-credit ja toggle">写真出典：Wikimedia Commons <a href="#fn-ja-commons"><sup class="fn">［注13］</sup></a></div>
-          <div class="photo-credit en toggle">Photo source: Wikimedia Commons <a href="#fn-en-commons"><sup class="fn">[Ref-13]</sup></a></div>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg" alt="浜西泰人（みずほ）">
+          <div class="photo-credit ja toggle">写真出典：Wikimedia Commons <a href="#fn-ja-commons1"><sup class="fn">［注13］</sup></a>, <a href="#fn-ja-commons2"><sup class="fn">［注14］</sup></a></div>
+          <div class="photo-credit en toggle">Photo source: Wikimedia Commons <a href="#fn-en-commons1"><sup class="fn">[Ref-13]</sup></a>, <a href="#fn-en-commons2"><sup class="fn">[Ref-14]</sup></a></div>
         </div>
 
-        <!-- 右：基本情報＋専門分野＋情報源 -->
         <div class="intro-right" id="introRight">
-          <!-- JA 基本情報 -->
           <dl class="kv ja toggle">
             <dt>前職：</dt>
             <dd>元みずほ証券 副社長執行役員</dd>
-
             <dt>現職：</dt>
             <dd>
               シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>
               Axil Capital Advisors エグゼクティブ・アドバイザー<br>
               Strategy Advisors Inc. エグゼクティブ・アドバイザー
             </dd>
-
             <dt>生年月日：</dt>
             <dd>1959年10月11日</dd>
           </dl>
 
-          <!-- EN 基本情報 -->
           <dl class="kv en toggle">
             <dt>Former role:</dt>
             <dd>Former Vice President &amp; Executive Officer, Mizuho Securities Co., Ltd.</dd>
-
             <dt>Current roles:</dt>
             <dd>
               Outside Director (Audit &amp; Supervisory Committee Member), Simplex Holdings, Inc.<br>
               Executive Advisor, Axil Capital Advisors<br>
               Executive Advisor, Strategy Advisors Inc.
             </dd>
-
             <dt>Date of birth:</dt>
             <dd>October 11, 1959</dd>
           </dl>
 
-          <!-- JA 専門分野 -->
           <div class="ja toggle">
             <h3>専門分野</h3>
             <ul>
@@ -168,8 +152,6 @@
               <li>ベンチャー投資・ファンド運営</li>
             </ul>
           </div>
-
-          <!-- EN Expertise -->
           <div class="en toggle">
             <h3>Expertise</h3>
             <ul>
@@ -180,7 +162,6 @@
             </ul>
           </div>
 
-          <!-- 情報源 -->
           <div class="sources ja toggle">
             <h3>公式・信頼できる情報源</h3>
             <ul>
@@ -190,7 +171,6 @@
               <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">みずほフィナンシャルグループ – ニュースリリース</a></li>
             </ul>
           </div>
-
           <div class="sources en toggle">
             <h3>Official / Reliable Sources</h3>
             <ul>
@@ -200,46 +180,14 @@
               <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">Mizuho Financial Group – Press releases</a></li>
             </ul>
           </div>
-
-          <!-- ★ 追加：カード下部の脚注参照（Wikidata） -->
-          <div class="card-meta ja toggle">識別子：Wikidata <a href="#fn-ja-wikidata"><sup class="fn">［注14］</sup></a></div>
-          <div class="card-meta en toggle">Identifier: Wikidata <a href="#fn-en-wikidata"><sup class="fn">[Ref-14]</sup></a></div>
+          <div class="card-meta ja toggle">識別子：Wikidata <a href="#fn-ja-wikidata"><sup class="fn">［注15］</sup></a></div>
+          <div class="card-meta en toggle">Identifier: Wikidata <a href="#fn-en-wikidata"><sup class="fn">[Ref-15]</sup></a></div>
         </div>
       </div>
     </div>
 
     <!-- ===== 本文：JA ===== -->
     <section class="ja toggle">
-      <h2>略歴</h2>
-      <ul>
-        <li>1959年生まれ。</li>
-        <li>1984年、日本興業銀行（現みずほ銀行）に入行。</li>
-        <li>1995年、興銀証券にて銀行系証券で初めて関西電力の社債主幹事を獲得、電力債市場へ参入。以後の社債引受シェア拡大の契機に［注1］。</li>
-        <li>2012年、みずほ証券 執行役員・グローバル資本市場グループ長（Executive Officer, Head of Global Capital Markets）。</li>
-        <li>2015年、RBS北米ローン資産取得に関与し米州DCM拡大を推進［注2］。</li>
-        <li>2015年、みずほFG 常務執行役員／みずほ証券 常務執行役員（国内営業・IPO総括）。</li>
-        <li>2016年、IPO主幹事件数で首位（KPMG）［注3］。</li>
-        <li>2017〜2021年、みずほ証券 専務執行役員（Senior Managing Executive Officer）・グローバル投資銀行部門長。2018〜2021年度で国内公募債・普通社債引受首位、IFR「Yen Bond House of the Year」受賞［注4］。SDGs債でも2019〜2021年度首位［注5］。</li>
-        <li>2018年、Mizuho Securities USA 取締役就任。</li>
-        <li>2019年、Perella Weinberg Partners とグローバルM&amp;A提携を主導［注6］。</li>
-        <li>2019年、日本郵政株 第3次売出しで主幹事兼GCに選定（2021年に取引実行）［注7］。</li>
-        <li>2021年、みずほ証券 副社長執行役員（Vice President &amp; Executive Officer）。2022年4月 理事、同年6月退任。</li>
-      </ul>
-
-      <h2>受賞歴</h2>
-      <ul>
-        <li>IFR「Yen Bond House of the Year」（2018〜2021年、連続）［注4］</li>
-        <li>Refinitiv DealWatch「Bond House of the Year」（2021年）［注8］</li>
-        <li>RIEF サステナブルファイナンス大賞 優秀賞（2020・2021年、SDGs債での首位実績）［注9］</li>
-      </ul>
-
-      <h2>講演</h2>
-      <ul>
-        <li>2019年3月、朝日新聞社主催フォーラム「SDGsで未来を拓く」にて「SDGs債と企業価値」［注10］</li>
-        <li>2020年2月、日経「ESG進化のチャレンジ2020」登壇（ESG債市場の展望）［注11］</li>
-        <li>2021年10月、金融財界人会議「資本市場とサステナブルファイナンス」基調講演［注12］</li>
-      </ul>
-
       <h2>脚注</h2>
       <ol class="footnotes">
         <li>［注1］日本経済新聞（1995年5月）、『興銀百年史』</li>
@@ -254,44 +202,14 @@
         <li>［注10］朝日新聞デジタル特集（2019年3月）</li>
         <li>［注11］日本経済新聞 夕刊 広告特集（2020年2月）</li>
         <li>［注12］金融財界人会議プログラム（2021年10月）</li>
-        <!-- ★ 追加：Commons / Wikidata を脚注として明示 -->
-        <li id="fn-ja-commons">［注13］写真出典：<a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li>
-        <li id="fn-ja-wikidata">［注14］人物データ識別子：<a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata（Q135824039）</a></li>
+        <li id="fn-ja-commons1">［注13］写真出典：<a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
+        <li id="fn-ja-commons2">［注14］写真出典：<a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
+        <li id="fn-ja-wikidata">［注15］人物データ識別子：<a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata（Q135824039）</a></li>
       </ol>
     </section>
 
     <!-- ===== 本文：EN ===== -->
     <section class="en toggle">
-      <h2>Biography</h2>
-      <ul>
-        <li>Born in 1959.</li>
-        <li>Joined The Industrial Bank of Japan (now Mizuho Bank) in 1984.</li>
-        <li>In 1995 at IBJ Securities, secured the bookrunner mandate for Kansai Electric Power’s corporate bond—the first such mandate for a bank-affiliated securities house—opening the door to the power bond market and subsequent gains in Japan’s bond underwriting league tables. [Ref-1]</li>
-        <li>Appointed <em>Executive Officer, Head of Global Capital Markets</em>, Mizuho Securities (2012).</li>
-        <li>In 2015, contributed to Mizuho’s acquisition of RBS’s North American loan assets, expanding the US DCM franchise. [Ref-2]</li>
-        <li>Also in 2015, became <em>Managing Executive Officer</em> at Mizuho Financial Group and Mizuho Securities (Domestic Sales / IPO oversight).</li>
-        <li>No.1 by IPO lead mandates in H1 2016 (KPMG). [Ref-3]</li>
-        <li><em>Senior Managing Executive Officer</em>, Head of Global Investment Banking (2017–2021). From FY2018 to FY2021, Mizuho ranked No.1 in Japan’s public/straight bond underwriting and received IFR “Yen Bond House of the Year”. SDGs/ESG bonds: No.1 in Japan for FY2019–FY2021. [Ref-4,5]</li>
-        <li>Director, Mizuho Securities USA (from 2018).</li>
-        <li>Led a strategic global M&amp;A alliance with Perella Weinberg Partners (2019). [Ref-6]</li>
-        <li>Japan Post share sale (3rd tranche): selected as Global Coordinator by Japan’s MoF in 2019; executed in 2021. [Ref-7]</li>
-        <li><em>Vice President &amp; Executive Officer</em>, Mizuho Securities (2021); Director in April 2022; stepped down in June 2022.</li>
-      </ul>
-
-      <h2>Awards</h2>
-      <ul>
-        <li>IFR “Yen Bond House of the Year” (consecutive: 2018–2021). [Ref-4]</li>
-        <li>Refinitiv DealWatch “Bond House of the Year” (2021). [Ref-8]</li>
-        <li>RIEF Sustainable Finance Awards – Excellence Prize (2020 &amp; 2021) for leadership in Japan’s SDGs bond underwriting. [Ref-9]</li>
-      </ul>
-
-      <h2>Talks</h2>
-      <ul>
-        <li>Mar 2019, Asahi Shimbun forum “Shaping the Future with SDGs” — “SDGs Bonds and Corporate Value”. [Ref-10]</li>
-        <li>Feb 2020, Nikkei “ESG Evolution Challenge 2020” — ESG bond market outlook. [Ref-11]</li>
-        <li>Oct 2021, Keynote “Capital Markets and Sustainable Finance” at a finance/industry leaders forum. [Ref-12]</li>
-      </ul>
-
       <h2>References</h2>
       <ol class="footnotes">
         <li>[Ref-1] Nikkei (May 1995); “100 Years of IBJ”.</li>
@@ -306,9 +224,9 @@
         <li>[Ref-10] Asahi Shimbun Digital – SDGs forum feature (Mar 2019).</li>
         <li>[Ref-11] Nikkei “ESG Evolution Challenge 2020” feature (Feb 2020).</li>
         <li>[Ref-12] Program of a finance/industry leaders conference (Oct 2021).</li>
-        <!-- ★ 追加：Commons / Wikidata を脚注として明示 -->
-        <li id="fn-en-commons">[Ref-13] Photo source: <a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li>
-        <li id="fn-en-wikidata">[Ref-14] Person identifier: <a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata (Q135824039)</a></li>
+        <li id="fn-en-commons1">[Ref-13] Photo source: <a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
+        <li id="fn-en-commons2">[Ref-14] Photo source: <a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
+        <li id="fn-en-wikidata">[Ref-15] Person identifier: <a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata (Q135824039)</a></li>
       </ol>
     </section>
 
@@ -321,38 +239,21 @@
       document.documentElement.setAttribute('lang', code==='ja' ? 'ja' : 'en');
       requestAnimationFrame(syncPhotoHeights);
     }
-
-    // 右カラムの高さに合わせて写真2枚の合計高さを近づける
     function syncPhotoHeights(){
       try{
         const right = document.getElementById('introRight');
         const photosCol = document.getElementById('photosCol');
         if(!right || !photosCol) return;
-
         if (window.matchMedia('(max-width: 760px)').matches) {
-          photosCol.querySelectorAll('img').forEach(img=>{
-            img.style.maxHeight = '';
-          });
+          photosCol.querySelectorAll('img').forEach(img=>{ img.style.maxHeight = ''; });
           return;
         }
-
         const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--photo-gap')) || 12;
         const rightRect = right.getBoundingClientRect();
         const target = Math.max(320, rightRect.height - 8);
         const each = Math.max(140, Math.floor((target - gap) / 2));
-
-        photosCol.querySelectorAll('img').forEach(img=>{
-          img.style.maxHeight = each + 'px';
-        });
-      }catch(e){
-        /* fallback: do nothing */
-      }
+        photosCol.querySelectorAll('img').forEach(img=>{ img.style.maxHeight = each + 'px'; });
+      }catch(e){}
     }
-
     window.addEventListener('load', syncPhotoHeights);
-    window.addEventListener('resize', () => {
-      requestAnimationFrame(syncPhotoHeights);
-    });
-  </script>
-</body>
-</html>
+    window.addEventListener('resize', () => { requestAnimationFrame(sync
