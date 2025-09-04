@@ -8,11 +8,10 @@
     :root{
       --maxw: 1000px;
       --gap: 24px;
-      --muted: #666;
+      --muted:#666;
       --border:#e6e6e6;
-      /* 写真サイズはここで微調整（例: 170〜200px） */
-      --photo-max: 200px;
-      --photo-gap: 12px;
+      --photo-max: 180px;   /* フォールバック高さ（JSが使えない環境用） */
+      --photo-gap: 12px;    /* 2枚の間の余白 */
     }
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,
@@ -30,40 +29,42 @@
       display:flex;flex-direction:column;gap:var(--photo-gap);max-width:260px;align-self:start;
     }
     .photos img{
-      width:100%;height:auto;max-height:var(--photo-max);
-      object-fit:contain;border-radius:10px;display:block;
+      width:100%;
+      height:auto;              /* 等比維持の基本 */
+      max-height:var(--photo-max); /* JSで上書きされる（fallback付き） */
+      object-fit:contain;       /* 画像を切らず全体表示 */
+      border-radius:10px;
+      display:block;
+      background:#fafafa;
     }
-    .kv dt{font-weight:700}
-    .kv dd{margin:0 0 10px 0}
+
+    /* 見出しサイズ統一（dt を h3 と同サイズへ） */
+    .card h3,
+    .kv dt{
+      font-size: clamp(16px, 2.1vw, 18px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 18px 0 8px;
+    }
+    .kv dd{ margin:0 0 12px 0; }
+
     h2{margin:32px 0 8px;border-bottom:2px solid var(--border);padding-bottom:6px}
-    h3{margin:20px 0 8px}
     ul{padding-left:20px;margin:6px 0}
     a{color:#1a5ad7;text-decoration:none}
     a:hover{text-decoration:underline}
     .sources{margin-top:12px;border-top:1px dashed var(--border);padding-top:12px}
     .sources li{margin:.2em 0}
+
     /* 言語切替 */
     .lang-ja .toggle.en, .lang-en .toggle.ja{display:none}
     .footnotes li{font-size:0.95em}
+
     @media (max-width:760px){
       .hero{grid-template-columns:1fr}
       .photos{max-width:100%}
-      .photos img{max-height:none}
+      .photos img{max-height:none} /* スマホは横幅基準で等比縮小に任せる */
     }
   </style>
-  /* 見出しサイズを統一（dt = h3 と同じ大きさ） */
-.card h3,
-.kv dt {
-  font-size: clamp(16px, 2.1vw, 18px);
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 18px 0 8px;
-}
-
-/* dt の下マージン調整（本文との詰まり防止） */
-.kv dd { 
-  margin: 0 0 12px 0;
-}
 </head>
 <body class="lang-ja">
   <div class="wrap">
@@ -83,13 +84,13 @@
     <div class="card">
       <div class="hero">
         <!-- 左：写真（2枚縦） -->
-        <div class="photos">
+        <div class="photos" id="photosCol">
           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp" alt="Yasuto Hamanishi">
           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B5%9C%E8%A5%BF%E6%B3%B0%E4%BA%BA%E6%B0%8F%EF%BC%88%E3%81%BF%E3%81%9A%E3%81%BB%EF%BC%89.jpg" alt="浜西泰人（みずほ）">
         </div>
 
         <!-- 右：基本情報（JA/EN）＋ 専門分野（イントロ内）＋ 情報源 -->
-        <div>
+        <div class="intro-right" id="introRight">
           <!-- JA 基本情報 -->
           <dl class="kv ja toggle">
             <dt>前職：</dt>
@@ -122,7 +123,7 @@
             <dd>October 11, 1959</dd>
           </dl>
 
-          <!-- JA 専門分野（イントロ内へ移動） -->
+          <!-- JA 専門分野（イントロ内へ配置） -->
           <div class="ja toggle">
             <h3>専門分野</h3>
             <ul>
@@ -273,7 +274,47 @@
       document.body.classList.toggle('lang-ja', code==='ja');
       document.body.classList.toggle('lang-en', code==='en');
       document.documentElement.setAttribute('lang', code==='ja' ? 'ja' : 'en');
+      // 言語切替時にも写真高さを再同期
+      requestAnimationFrame(syncPhotoHeights);
     }
+
+    // 右カラムの高さに合わせて写真2枚の合計高さを近づける
+    function syncPhotoHeights(){
+      try{
+        const right = document.getElementById('introRight');
+        const photosCol = document.getElementById('photosCol');
+        if(!right || !photosCol) return;
+
+        // スマホ幅は自然縮小に任せる（CSSで max-height: none）
+        if (window.matchMedia('(max-width: 760px)').matches) {
+          photosCol.querySelectorAll('img').forEach(img=>{
+            img.style.maxHeight = '';
+          });
+          return;
+        }
+
+        const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--photo-gap')) || 12;
+        const rightRect = right.getBoundingClientRect();
+
+        // 内側のパディングを除いた見かけ高さを推定（安全側で少し余裕）
+        const target = Math.max(320, rightRect.height - 8);
+
+        // 2枚で target に収まるよう 1枚あたりの max-height を算出
+        const each = Math.max(140, Math.floor((target - gap) / 2));
+
+        photosCol.querySelectorAll('img').forEach(img=>{
+          img.style.maxHeight = each + 'px';
+        });
+      }catch(e){
+        // フォールバック（CSSの --photo-max を使用）
+      }
+    }
+
+    window.addEventListener('load', syncPhotoHeights);
+    window.addEventListener('resize', () => {
+      // リサイズ頻発対策：次フレームで実行
+      requestAnimationFrame(syncPhotoHeights);
+    });
   </script>
 </body>
 </html>
