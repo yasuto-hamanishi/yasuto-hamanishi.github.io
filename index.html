@@ -5,7 +5,7 @@
   <title>浜西 泰人 / Yasuto Hamanishi – Official Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ★ 追加：構造化データ（schema.org / Person, JSON-LD） -->
+  <!-- 構造化データ（schema.org / Person, JSON-LD） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,8 +38,8 @@
       --gap: 24px;
       --muted:#666;
       --border:#e6e6e6;
-      --photo-max: 180px;
-      --photo-gap: 12px;
+      --photo-max: 220px;   /* JSが無効のときのフォールバック */
+      --photo-gap: 12px;    /* 2枚の間の余白 */
     }
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,
@@ -58,15 +58,15 @@
     }
     .photos img{
       width:100%;
-      height:auto;
-      max-height:var(--photo-max);
-      object-fit:contain;
+      height:auto;               /* 縦横比維持 */
+      max-height:var(--photo-max); /* JSで上書きされる */
+      object-fit:contain;        /* 画像全体を表示（トリミング無し） */
       border-radius:10px;
       display:block;
       background:#fafafa;
     }
-    .photo-credit{font-size:12px;color:var(--muted);margin-top:4px}
 
+    /* 見出しサイズ統一 */
     .card h3,
     .kv dt{
       font-size: clamp(16px, 2.1vw, 18px);
@@ -83,66 +83,78 @@
     .sources{margin-top:12px;border-top:1px dashed var(--border);padding-top:12px}
     .sources li{margin:.2em 0}
 
+    /* 言語切替（片方を隠す） */
     .lang-ja .toggle.en, .lang-en .toggle.ja{display:none}
+
     .footnotes li{font-size:0.95em}
-    sup.fn {font-size: 0.8em; line-height: 0; vertical-align: super;}
-    .card-meta{margin-top:8px;font-size:12px;color:var(--muted)}
+    /* 写真下の注釈は不要とのご要望で非表示（必要なら削除してOK） */
+    .photo-credit{display:none}
 
     @media (max-width:760px){
       .hero{grid-template-columns:1fr}
       .photos{max-width:100%}
-      .photos img{max-height:none}
+      .photos img{max-height:none} /* スマホは横幅基準で自然縮小 */
     }
   </style>
 </head>
 <body class="lang-ja">
   <div class="wrap">
 
+    <!-- タイトル（クリックで言語切替） -->
     <div class="titlebar">
       <h1 class="tname-ja" onclick="setLang('ja')">浜西 泰人</h1>
       <h1 class="tname-en" onclick="setLang('en')">Yasuto Hamanishi</h1>
       <span class="lang-note">（名前をクリックで言語切替 / Click name to switch language）</span>
     </div>
 
+    <!-- イントロ -->
     <p class="ja toggle"><strong>日本の実業家、元投資銀行家。</strong></p>
     <p class="en toggle"><strong>Japanese business executive and former investment banker.</strong></p>
 
+    <!-- まとめカード（写真＋右カラム） -->
     <div class="card">
       <div class="hero">
+        <!-- 左：写真（2枚縦） -->
         <div class="photos" id="photosCol">
           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp" alt="Yasuto Hamanishi">
           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg" alt="浜西泰人（みずほ）">
-          <div class="photo-credit ja toggle">写真出典：Wikimedia Commons <a href="#fn-ja-commons1"><sup class="fn">［注13］</sup></a>, <a href="#fn-ja-commons2"><sup class="fn">［注14］</sup></a></div>
-          <div class="photo-credit en toggle">Photo source: Wikimedia Commons <a href="#fn-en-commons1"><sup class="fn">[Ref-13]</sup></a>, <a href="#fn-en-commons2"><sup class="fn">[Ref-14]</sup></a></div>
         </div>
 
+        <!-- 右：基本情報・専門分野・情報源 -->
         <div class="intro-right" id="introRight">
+          <!-- JA 基本情報 -->
           <dl class="kv ja toggle">
             <dt>前職：</dt>
             <dd>元みずほ証券 副社長執行役員</dd>
+
             <dt>現職：</dt>
             <dd>
               シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>
               Axil Capital Advisors エグゼクティブ・アドバイザー<br>
               Strategy Advisors Inc. エグゼクティブ・アドバイザー
             </dd>
+
             <dt>生年月日：</dt>
             <dd>1959年10月11日</dd>
           </dl>
 
+          <!-- EN 基本情報 -->
           <dl class="kv en toggle">
             <dt>Former role:</dt>
             <dd>Former Vice President &amp; Executive Officer, Mizuho Securities Co., Ltd.</dd>
+
             <dt>Current roles:</dt>
             <dd>
               Outside Director (Audit &amp; Supervisory Committee Member), Simplex Holdings, Inc.<br>
               Executive Advisor, Axil Capital Advisors<br>
               Executive Advisor, Strategy Advisors Inc.
             </dd>
+
             <dt>Date of birth:</dt>
             <dd>October 11, 1959</dd>
           </dl>
 
+          <!-- JA 専門分野 -->
           <div class="ja toggle">
             <h3>専門分野</h3>
             <ul>
@@ -152,6 +164,8 @@
               <li>ベンチャー投資・ファンド運営</li>
             </ul>
           </div>
+
+          <!-- EN Expertise -->
           <div class="en toggle">
             <h3>Expertise</h3>
             <ul>
@@ -162,6 +176,7 @@
             </ul>
           </div>
 
+          <!-- 情報源 -->
           <div class="sources ja toggle">
             <h3>公式・信頼できる情報源</h3>
             <ul>
@@ -171,6 +186,7 @@
               <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">みずほフィナンシャルグループ – ニュースリリース</a></li>
             </ul>
           </div>
+
           <div class="sources en toggle">
             <h3>Official / Reliable Sources</h3>
             <ul>
@@ -180,80 +196,110 @@
               <li><a href="https://www.mizuho-fg.co.jp/release/" target="_blank">Mizuho Financial Group – Press releases</a></li>
             </ul>
           </div>
-          <div class="card-meta ja toggle">識別子：Wikidata <a href="#fn-ja-wikidata"><sup class="fn">［注15］</sup></a></div>
-          <div class="card-meta en toggle">Identifier: Wikidata <a href="#fn-en-wikidata"><sup class="fn">[Ref-15]</sup></a></div>
         </div>
       </div>
     </div>
 
-    <!-- ===== 本文：JA ===== -->
+    <!-- ===== 脚注（JA） ===== -->
     <section class="ja toggle">
       <h2>脚注</h2>
       <ol class="footnotes">
-        <li>［注1］日本経済新聞（1995年5月）、『興銀百年史』</li>
-        <li>［注2］Reuters “Mizuho to acquire RBS’s North American loan assets”（2015年）</li>
-        <li>［注3］KPMG Japan「IPOレビュー（2016年上半期）」</li>
-        <li>［注4］IFR「Yen Bond House of the Year」（2018〜2021年）</li>
-        <li>［注5］RIEF・ニッキンONLINE（2019〜2021年度のSDGs債シェア首位）</li>
-        <li>［注6］Perella Weinberg Partners プレスリリース（2019年）</li>
-        <li>［注7］財務省リリース（2019年5月）／ロイター（2019年5月）</li>
-        <li>［注8］Refinitiv DealWatch Awards（2021年）</li>
-        <li>［注9］RIEF「サステナブルファイナンス大賞」授賞記事（2020・2021年）</li>
-        <li>［注10］朝日新聞デジタル特集（2019年3月）</li>
-        <li>［注11］日本経済新聞 夕刊 広告特集（2020年2月）</li>
-        <li>［注12］金融財界人会議プログラム（2021年10月）</li>
-        <li id="fn-ja-commons1">［注13］写真出典：<a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
-        <li id="fn-ja-commons2">［注14］写真出典：<a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
-        <li id="fn-ja-wikidata">［注15］人物データ識別子：<a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata（Q135824039）</a></li>
+        <li>日本経済新聞（1995年5月）、『興銀百年史』</li>
+        <li>Reuters “Mizuho to acquire RBS’s North American loan assets”（2015年）</li>
+        <li>KPMG Japan「IPOレビュー（2016年上半期）」</li>
+        <li>IFR「Yen Bond House of the Year」（2018〜2021年）</li>
+        <li>RIEF・ニッキンONLINE（2019〜2021年度のSDGs債シェア首位）</li>
+        <li>Perella Weinberg Partners プレスリリース（2019年）</li>
+        <li>財務省リリース（2019年5月）／ロイター（2019年5月）</li>
+        <li>Refinitiv DealWatch Awards（2021年）</li>
+        <li>RIEF「サステナブルファイナンス大賞」授賞記事（2020・2021年）</li>
+        <li>朝日新聞デジタル特集（2019年3月）</li>
+        <li>日本経済新聞 夕刊 広告特集（2020年2月）</li>
+        <li>金融財界人会議プログラム（2021年10月）</li>
+        <li>写真出典：<a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
+        <li>写真出典：<a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
+        <li>人物データ識別子：<a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata（Q135824039）</a></li>
       </ol>
     </section>
 
-    <!-- ===== 本文：EN ===== -->
+    <!-- ===== References（EN） ===== -->
     <section class="en toggle">
       <h2>References</h2>
       <ol class="footnotes">
-        <li>[Ref-1] Nikkei (May 1995); “100 Years of IBJ”.</li>
-        <li>[Ref-2] Reuters: “Mizuho to acquire RBS’s North American loan assets” (2015).</li>
-        <li>[Ref-3] KPMG Japan “IPO Review (H1 2016)”.</li>
-        <li>[Ref-4] IFR “Yen Bond House of the Year” (2018–2021).</li>
-        <li>[Ref-5] RIEF / Nikkin Online coverage: Mizuho No.1 in SDGs bond underwriting (FY2019–FY2021).</li>
-        <li>[Ref-6] Perella Weinberg Partners press release (2019).</li>
-        <li>[Ref-7] Japan MoF release on Japan Post 3rd tranche underwriters (May 2019); Reuters (May 2019).</li>
-        <li>[Ref-8] Refinitiv DealWatch Awards (2021).</li>
-        <li>[Ref-9] RIEF Sustainable Finance Awards (2020 &amp; 2021).</li>
-        <li>[Ref-10] Asahi Shimbun Digital – SDGs forum feature (Mar 2019).</li>
-        <li>[Ref-11] Nikkei “ESG Evolution Challenge 2020” feature (Feb 2020).</li>
-        <li>[Ref-12] Program of a finance/industry leaders conference (Oct 2021).</li>
-        <li id="fn-en-commons1">[Ref-13] Photo source: <a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
-        <li id="fn-en-commons2">[Ref-14] Photo source: <a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
-        <li id="fn-en-wikidata">[Ref-15] Person identifier: <a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata (Q135824039)</a></li>
+        <li>Nikkei (May 1995); “100 Years of IBJ”.</li>
+        <li>Reuters: “Mizuho to acquire RBS’s North American loan assets” (2015).</li>
+        <li>KPMG Japan “IPO Review (H1 2016)”.</li>
+        <li>IFR “Yen Bond House of the Year” (2018–2021).</li>
+        <li>RIEF / Nikkin Online: Mizuho No.1 in SDGs bond underwriting (FY2019–FY2021).</li>
+        <li>Perella Weinberg Partners press release (2019).</li>
+        <li>Japan MoF release on Japan Post 3rd tranche underwriters (May 2019); Reuters (May 2019).</li>
+        <li>Refinitiv DealWatch Awards (2021).</li>
+        <li>RIEF Sustainable Finance Awards (2020 &amp; 2021).</li>
+        <li>Asahi Shimbun Digital – SDGs forum feature (Mar 2019).</li>
+        <li>Nikkei “ESG Evolution Challenge 2020” feature (Feb 2020).</li>
+        <li>Program of a finance/industry leaders conference (Oct 2021).</li>
+        <li>Photo source: <a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
+        <li>Photo source: <a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
+        <li>Person identifier: <a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata (Q135824039)</a></li>
       </ol>
     </section>
 
   </div>
 
   <script>
+    // 言語切替
     function setLang(code){
-      document.body.classList.toggle('lang-ja', code==='ja');
-      document.body.classList.toggle('lang-en', code==='en');
-      document.documentElement.setAttribute('lang', code==='ja' ? 'ja' : 'en');
+      document.body.classList.toggle('lang-ja', code === 'ja');
+      document.body.classList.toggle('lang-en', code === 'en');
+      document.documentElement.setAttribute('lang', code === 'ja' ? 'ja' : 'en');
       requestAnimationFrame(syncPhotoHeights);
     }
+
+    // 右カラムの高さに合わせて写真2枚の合計高さを近づける
     function syncPhotoHeights(){
       try{
         const right = document.getElementById('introRight');
         const photosCol = document.getElementById('photosCol');
         if(!right || !photosCol) return;
+
+        // スマホ幅は自然縮小に任せる
         if (window.matchMedia('(max-width: 760px)').matches) {
-          photosCol.querySelectorAll('img').forEach(img=>{ img.style.maxHeight = ''; });
+          photosCol.querySelectorAll('img').forEach(img => { img.style.maxHeight = ''; });
           return;
         }
+
         const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--photo-gap')) || 12;
         const rightRect = right.getBoundingClientRect();
-        const target = Math.max(320, rightRect.height - 8);
-        const each = Math.max(140, Math.floor((target - gap) / 2));
-        photosCol.querySelectorAll('img').forEach(img=>{ img.style.maxHeight = each + 'px'; });
-      }catch(e){}
+
+        // 右カラムの内側高さを目安に少し余裕を持たせて設定
+        const target = Math.max(360, rightRect.height - 8);
+        const each = Math.max(160, Math.floor((target - gap) / 2));
+
+        photosCol.querySelectorAll('img').forEach(img => {
+          img.style.maxHeight = each + 'px';
+        });
+      }catch(e){ /* no-op */ }
     }
-    window.addEventListener('load', syncPhotoHeights);
-    window.addEventListener('resize', () => { requestAnimationFrame(sync
+
+    // 初期化：画像読込後に高さ同期
+    function onReady(){
+      const imgs = Array.from(document.querySelectorAll('#photosCol img'));
+      let loaded = 0;
+      const fire = () => requestAnimationFrame(syncPhotoHeights);
+      if (imgs.length === 0) { fire(); return; }
+      imgs.forEach(img => {
+        if (img.complete) {
+          loaded++;
+          if (loaded === imgs.length) fire();
+        } else {
+          img.addEventListener('load', () => { loaded++; if (loaded === imgs.length) fire(); });
+          img.addEventListener('error', () => { loaded++; if (loaded === imgs.length) fire(); });
+        }
+      });
+    }
+
+    window.addEventListener('load', onReady);
+    window.addEventListener('resize', () => requestAnimationFrame(syncPhotoHeights));
+  </script>
+</body>
+</html>
