@@ -90,10 +90,22 @@
     /* ご要望により写真下の注記は非表示 */
     .photo-credit{display:none}
 
+    /* ▼ スマホ：写真を横2枚並びに */
     @media (max-width:760px){
       .hero{grid-template-columns:1fr}
-      .photos{max-width:100%}
-      .photos img{max-height:none} /* スマホは横幅基準で自然縮小 */
+      .photos{
+        max-width:100%;
+        flex-direction:row;       /* ←縦→横に変更 */
+        gap:var(--photo-gap);
+      }
+      .photos img{
+        max-height:none;          /* 高さ制限なしで自然縮小 */
+        flex:1 1 0;               /* 均等幅で2枚 */
+        min-width:0;              /* はみ出し防止 */
+        width:auto;               /* flex優先 */
+        height:auto;              /* 比率維持 */
+        object-fit:contain;
+      }
     }
   </style>
 </head>
@@ -114,10 +126,10 @@
     <!-- まとめカード（写真＋右カラム） -->
     <div class="card">
       <div class="hero">
-        <!-- 左：写真（2枚縦） -->
+        <!-- 左：写真 -->
         <div class="photos" id="photosCol">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp" alt="Yasuto Hamanishi">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg" alt="浜西泰人（みずほ）">
+          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp" alt="Yasuto Hamanishi">
+          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg" alt="浜西泰人（みずほ）">
         </div>
 
         <!-- 右：基本情報・専門分野・情報源 -->
