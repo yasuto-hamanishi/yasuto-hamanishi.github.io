@@ -50,8 +50,8 @@
       --gap: 24px;
       --muted:#666;
       --border:#e6e6e6;
-      --photo-max: 220px;   /* JS無効時のフォールバック（PC） */
-      --photo-gap: 12px;    /* 2枚の間の余白 */
+      --photo-max: 220px;
+      --photo-gap: 12px;
     }
     html, body { height:auto; }
     body{
@@ -77,14 +77,13 @@
       width:100%;
       height:auto;
       max-height:var(--photo-max);
-      object-fit:contain;         /* トリミング無しで全体表示 */
+      object-fit:contain;
       border-radius:10px;
       display:block;
       background:#fafafa;
     }
     .intro-right{min-height:0;}
 
-    /* 見出しサイズ統一 */
     .card h3,.kv dt{
       font-size: clamp(16px, 2.1vw, 18px);
       font-weight: 700;
@@ -100,13 +99,10 @@
     .sources{margin-top:12px;border-top:1px dashed var(--border);padding-top:12px}
     .sources li{margin:.2em 0}
 
-    /* 言語切替（片方を隠す） */
     .lang-ja .toggle.en, .lang-en .toggle.ja{display:none}
-
     .footnotes li{font-size:0.95em}
-    .photo-credit{display:none} /* 写真下の注記は非表示 */
+    .photo-credit{display:none}
 
-    /* 「2021年…退任。」の行のあとに空きを作る */
     .gap-after{ margin-bottom: 14px; }
 
     @media (max-width:1024px){
@@ -130,29 +126,24 @@
 <body class="lang-ja">
   <div class="wrap">
 
-    <!-- タイトル（クリックで言語切替） -->
     <div class="titlebar">
       <h1 class="tname-ja" onclick="setLang('ja')">浜西 泰人</h1>
       <h1 class="tname-en" onclick="setLang('en')">Yasuto Hamanishi</h1>
       <span class="lang-note">（名前をクリックで言語切替 / Click name to switch language）</span>
     </div>
 
-    <!-- イントロ -->
     <p class="ja toggle"><strong>日本の実業家、元投資銀行家。</strong></p>
     <p class="en toggle"><strong>Japanese business executive and former investment banker.</strong></p>
 
-    <!-- まとめカード（写真＋右カラム） -->
     <div class="card">
       <div class="hero">
-        <!-- 左：写真 -->
         <div class="photos" id="photosCol">
-          <!-- 1枚目：GitHubに置いた写真 -->
-          <img loading="lazy" src="assets/img/hamanishi-main.webp" alt="Yasuto Hamanishi">
+          <!-- 1枚目：GitHubに置いた写真（ルート相対パスに修正） -->
+          <img loading="lazy" src="/assets/img/hamanishi-main.webp" alt="Yasuto Hamanishi">
           <!-- 2枚目：Wikimediaのまま -->
           <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg" alt="浜西泰人（みずほ）">
         </div>
 
-        <!-- 右：基本情報・専門分野・情報源 -->
         <div class="intro-right" id="introRight">
           <!-- JA 基本情報 -->
           <dl class="kv ja toggle">
@@ -188,7 +179,6 @@
             <dd>October 11, 1959</dd>
           </dl>
 
-          <!-- JA 専門分野 -->
           <div class="ja toggle">
             <h3>専門分野</h3>
             <ul>
@@ -199,7 +189,6 @@
             </ul>
           </div>
 
-          <!-- EN Expertise -->
           <div class="en toggle">
             <h3>Expertise</h3>
             <ul>
@@ -210,7 +199,6 @@
             </ul>
           </div>
 
-          <!-- 情報源 -->
           <div class="sources ja toggle">
             <h3>公式・信頼できる情報源</h3>
             <ul>
@@ -340,35 +328,28 @@
   </div>
 
   <script>
-    // 言語切替
     function setLang(code){
       document.body.classList.toggle('lang-ja', code === 'ja');
       document.body.classList.toggle('lang-en', code === 'en');
       document.documentElement.setAttribute('lang', code === 'ja' ? 'ja' : 'en');
       requestAnimationFrame(syncPhotoHeights);
     }
-
-    // PCのみ高さ調整（モバイル/タブレットは調整しない）
     function syncPhotoHeights(){
       try{
         const right = document.getElementById('introRight');
         const photosCol = document.getElementById('photosCol');
         if(!right || !photosCol) return;
-
-        // タブレット含むモバイル幅（<=1024px）は自然縮小に任せる
         if (window.matchMedia('(max-width: 1024px)').matches) {
           photosCol.querySelectorAll('img').forEach(img => { img.style.maxHeight = ''; });
           return;
         }
-
         const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--photo-gap')) || 12;
         const rightRect = right.getBoundingClientRect();
         const target = Math.max(360, rightRect.height - 8);
         const each = Math.max(160, Math.floor((target - gap) / 2));
         photosCol.querySelectorAll('img').forEach(img => { img.style.maxHeight = each + 'px'; });
-      }catch(e){ /* no-op */ }
+      }catch(e){}
     }
-
     function onReady(){
       const imgs = Array.from(document.querySelectorAll('#photosCol img'));
       let loaded = 0;
