@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- ★検索結果用の要約（日本語を主に） -->
-  <meta name="description" content="浜西泰人（Yasuto Hamanishi）：日本の実業家・元投資銀行家。元みずほ証券 副社長執行役員／グローバル投資銀行部門長。現在はシンプレクス・ホールディングス 取締役（監査等委員）および Axil Capital Advisors・Strategy Advisors のエグゼクティブ・アドバイザー。">
-  <!-- ★SNSプレビュー整合 -->
+  <meta name="description" content="浜西泰人（Yasuto Hamanishi）：日本の実業家・元投資銀行家。元みずほ証券 副社長執行役員／グローバル投資銀行部門長。現在はシンプレクス・ホールディングス取締役（監査等委員）、Axil Capital Advisors・Strategy Advisorsのエグゼクティブ・アドバイザー。">
+
+  <!-- ★SNSプレビュー整合（OGP/Twitter） -->
   <meta property="og:title" content="浜西 泰人 / Yasuto Hamanishi – Official Profile">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yasuto-hamanishi.github.io/">
-  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp">
+  <meta property="og:image" content="https://yasuto-hamanishi.github.io/assets/img/hamanishi-main.webp">
   <meta property="og:description" content="浜西泰人：日本の実業家・元投資銀行家。元みずほ証券 副社長執行役員／グローバル投資銀行部門長。現在はシンプレクス・ホールディングス取締役（監査等委員）ほか。">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:description" content="浜西泰人：日本の実業家・元投資銀行家。元みずほ証券 副社長執行役員／グローバル投資銀行部門長。現在はシンプレクス・ホールディングス取締役（監査等委員）ほか。">
@@ -32,13 +33,12 @@
       {"@type": "Organization","name": "Strategy Advisors Inc."}
     ],
     "url": "https://yasuto-hamanishi.github.io/",
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp",
+    "image": "https://yasuto-hamanishi.github.io/assets/img/hamanishi-main.webp",
     "sameAs": [
       "https://www.simplex.holdings/news/2022/1139/",
       "https://www.axilcapital.com/news221101",
       "https://www.strategy-advisors.co.jp/members/",
       "https://www.wikidata.org/wiki/Q135824039",
-      "https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp",
       "https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg"
     ]
   }
@@ -67,7 +67,7 @@
     .card{margin-top:18px;border:1px solid var(--border);border-radius:14px;padding:20px}
     .hero{
       display:grid;grid-template-columns:260px 1fr;gap:var(--gap);
-      min-height:0; /* オーバーフロー抑止 */
+      min-height:0;
     }
     .photos{
       display:flex;flex-direction:column;gap:var(--photo-gap);max-width:260px;align-self:start;
@@ -75,8 +75,8 @@
     }
     .photos img{
       width:100%;
-      height:auto;                /* 縦横比維持 */
-      max-height:var(--photo-max);/* JSで上書き（PC） */
+      height:auto;
+      max-height:var(--photo-max);
       object-fit:contain;         /* トリミング無しで全体表示 */
       border-radius:10px;
       display:block;
@@ -85,8 +85,7 @@
     .intro-right{min-height:0;}
 
     /* 見出しサイズ統一 */
-    .card h3,
-    .kv dt{
+    .card h3,.kv dt{
       font-size: clamp(16px, 2.1vw, 18px);
       font-weight: 700;
       line-height: 1.3;
@@ -107,21 +106,20 @@
     .footnotes li{font-size:0.95em}
     .photo-credit{display:none} /* 写真下の注記は非表示 */
 
-    /* ▼ 「2021年…退任。」の行のあとに空きを作る */
+    /* 「2021年…退任。」の行のあとに空きを作る */
     .gap-after{ margin-bottom: 14px; }
 
-    /* ▼ タブレット/スマホ：写真を横2枚並び（安定のCSS Grid） */
     @media (max-width:1024px){
-      .hero{grid-template-columns:1fr}          /* 写真→本文の縦積み */
+      .hero{grid-template-columns:1fr}
       .photos{
         max-width:100%;
-        display:grid;                            /* Flex→Grid */
-        grid-template-columns:1fr 1fr;           /* 横2枚 */
+        display:grid;
+        grid-template-columns:1fr 1fr;
         gap:var(--photo-gap);
         align-items:start;
       }
       .photos img{
-        max-height:none;                         /* 高さ制限解除 */
+        max-height:none;
         width:100%;
         height:auto;
         object-fit:contain;
@@ -148,7 +146,9 @@
       <div class="hero">
         <!-- 左：写真 -->
         <div class="photos" id="photosCol">
-          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yasuto_Hamanishi.webp" alt="Yasuto Hamanishi">
+          <!-- 1枚目：GitHubに置いた写真 -->
+          <img loading="lazy" src="assets/img/hamanishi-main.webp" alt="Yasuto Hamanishi">
+          <!-- 2枚目：Wikimediaのまま -->
           <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/浜西泰人氏（みずほ）.jpg" alt="浜西泰人（みずほ）">
         </div>
 
@@ -283,7 +283,7 @@
         <li>［注10］朝日新聞デジタル特集（2019年3月）</li>
         <li>［注11］日本経済新聞 夕刊 広告特集（2020年2月）</li>
         <li>［注12］金融財界人会議プログラム（2021年10月）</li>
-        <li>［注13］写真出典：<a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
+        <li>［注13］写真出典（サイト掲載画像）：<a href="https://yasuto-hamanishi.github.io/assets/img/hamanishi-main.webp" target="_blank" rel="noopener">Official site – hamanishi-main.webp</a></li>
         <li>［注14］写真出典：<a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
         <li>［注15］人物データ識別子：<a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata（Q135824039）</a></li>
       </ol>
@@ -317,13 +317,6 @@
         <li>RIEF Sustainable Finance Awards – Excellence Prize (2020 &amp; 2021) for leadership in Japan’s SDGs bond underwriting. [Ref-9]</li>
       </ul>
 
-      <h2>Talks</h2>
-      <ul>
-        <li>Mar 2019, Asahi Shimbun forum “Shaping the Future with SDGs” — “SDGs Bonds and Corporate Value”. [Ref-10]</li>
-        <li>Feb 2020, Nikkei “ESG Evolution Challenge 2020” — ESG bond market outlook. [Ref-11]</li>
-        <li>Oct 2021, Keynote “Capital Markets and Sustainable Finance” at a finance/industry leaders forum. [Ref-12]</li>
-      </ul>
-
       <h2>References</h2>
       <ol class="footnotes">
         <li>[Ref-1] Nikkei (May 1995); “100 Years of IBJ”.</li>
@@ -338,7 +331,7 @@
         <li>[Ref-10] Asahi Shimbun Digital – SDGs forum feature (Mar 2019).</li>
         <li>[Ref-11] Nikkei “ESG Evolution Challenge 2020” feature (Feb 2020).</li>
         <li>[Ref-12] Program of a finance/industry leaders conference (Oct 2021).</li>
-        <li>[Ref-13] Photo source: <a href="https://commons.wikimedia.org/wiki/File:Yasuto_Hamanishi.webp" target="_blank" rel="noopener">Wikimedia Commons – Yasuto Hamanishi.webp</a></li>
+        <li>[Ref-13] Photo (on official site): <a href="https://yasuto-hamanishi.github.io/assets/img/hamanishi-main.webp" target="_blank" rel="noopener">Official site – hamanishi-main.webp</a></li>
         <li>[Ref-14] Photo source: <a href="https://commons.wikimedia.org/wiki/File:浜西泰人氏（みずほ）.jpg" target="_blank" rel="noopener">Wikimedia Commons – 浜西泰人氏（みずほ）.jpg</a></li>
         <li>[Ref-15] Person identifier: <a href="https://www.wikidata.org/wiki/Q135824039" target="_blank" rel="noopener">Wikidata (Q135824039)</a></li>
       </ol>
