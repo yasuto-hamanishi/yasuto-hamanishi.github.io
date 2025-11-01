@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <title>浜西 泰人 / Yasuto Hamanishi – Official Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- 検索結果用の要約 -->
   <meta name="description" content="浜西泰人（Yasuto Hamanishi）：日本の実業家・元投資銀行家。元みずほ証券 副社長執行役員／グローバル投資銀行部門長。現在はシンプレクス・ホールディングス社外取締役、Axil Capital Advisors・Strategy Advisorsのエグゼクティブ・アドバイザー。">
   <meta property="og:title" content="浜西 泰人 / Yasuto Hamanishi – Official Profile">
   <meta property="og:type" content="website">
@@ -13,9 +11,7 @@
   <meta property="og:image" content="https://yasuto-hamanishi.github.io/assets/img/yasuto-hamanishi.webp">
   <meta property="og:description" content="浜西泰人：日本の実業家・元投資銀行家。元みずほ証券 副社長執行役員／グローバル投資銀行部門長。現在はシンプレクス・ホールディングス社外取締役ほか。">
   <meta name="twitter:card" content="summary_large_image">
-
   <link rel="canonical" href="https://yasuto-hamanishi.github.io/">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
   <style>
     :root{--maxw:1000px;--gap:24px;--muted:#666;--border:#e6e6e6;--photo-gap:12px;}
@@ -29,7 +25,6 @@
     .hero{display:grid;grid-template-columns:260px 1fr;gap:var(--gap);}
     .photos{display:flex;flex-direction:column;gap:var(--photo-gap);max-width:260px;}
     .photos img{width:100%;height:auto;object-fit:contain;border-radius:10px;background:#fafafa;aspect-ratio:3/4;}
-    .intro-right{min-height:0;}
     h2{margin:32px 0 8px;border-bottom:2px solid var(--border);padding-bottom:6px}
     ul{padding-left:20px;margin:6px 0}
     a{color:#1a5ad7;text-decoration:none}
@@ -39,44 +34,45 @@
       .hero{grid-template-columns:1fr}
       .photos{max-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:var(--photo-gap);}
     }
+    .lang-ja .toggle.en,.lang-en .toggle.ja{display:none}
   </style>
 </head>
 <body class="lang-ja">
 <div class="wrap">
 
+  <!-- タイトルと言語切替 -->
   <div class="titlebar">
     <h1 class="tname-ja" onclick="setLang('ja')">浜西 泰人</h1>
     <h1 class="tname-en" onclick="setLang('en')">Yasuto Hamanishi</h1>
     <span class="lang-note">（名前をクリックで言語切替 / Click name to switch language）</span>
   </div>
 
-  <p><strong>日本の実業家、元投資銀行家。</strong></p>
+  <!-- 日本語プロフィール -->
+  <section class="ja toggle">
+    <p><strong>日本の実業家、元投資銀行家。</strong></p>
 
-  <div class="card">
-    <div class="hero">
-      <div class="photos">
-        <img src="/assets/img/yasuto-hamanishi.webp" alt="Yasuto Hamanishi">
-        <img src="/assets/img/hamanishi-gib-head.jpg" alt="浜西泰人（みずほ証券時代）">
-      </div>
-
-      <div class="intro-right">
-        <dl class="kv">
-          <dt>前職：</dt>
-          <dd>元みずほ証券 副社長執行役員</dd>
-          <dd>グローバル投資銀行部門長</dd>
-          <dt>現職：</dt>
-          <dd>
-            シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>
-            Axil Capital Advisors エグゼクティブ・アドバイザー<br>
-            Strategy Advisors Inc. エグゼクティブ・アドバイザー
-          </dd>
-          <dt>生年月日：</dt><dd>1959年10月11日</dd>
-        </dl>
+    <div class="card">
+      <div class="hero">
+        <div class="photos">
+          <img src="/assets/img/yasuto-hamanishi.webp" alt="Yasuto Hamanishi">
+          <img src="/assets/img/hamanishi-gib-head.jpg" alt="浜西泰人（みずほ証券時代）">
+        </div>
+        <div>
+          <dl>
+            <dt>前職：</dt>
+            <dd>元みずほ証券 副社長執行役員／グローバル投資銀行部門長</dd>
+            <dt>現職：</dt>
+            <dd>
+              シンプレクス・ホールディングス株式会社 社外取締役（監査等委員）<br>
+              Axil Capital Advisors エグゼクティブ・アドバイザー<br>
+              Strategy Advisors Inc. エグゼクティブ・アドバイザー
+            </dd>
+            <dt>生年月日：</dt><dd>1959年10月11日</dd>
+          </dl>
+        </div>
       </div>
     </div>
-  </div>
 
-  <section data-nosnippet>
     <h2>略歴</h2>
     <ul>
       <li>1959年生まれ。</li>
@@ -121,12 +117,83 @@
     </ol>
   </section>
 
+  <!-- 英語版 -->
+  <section class="en toggle">
+    <p><strong>Japanese business executive and former investment banker.</strong></p>
+
+    <div class="card">
+      <div class="hero">
+        <div class="photos">
+          <img src="/assets/img/yasuto-hamanishi.webp" alt="Yasuto Hamanishi">
+          <img src="/assets/img/hamanishi-gib-head.jpg" alt="Yasuto Hamanishi at Mizuho Securities">
+        </div>
+        <div>
+          <dl>
+            <dt>Former roles:</dt>
+            <dd>Vice President &amp; Executive Officer, Mizuho Securities Co., Ltd.</dd>
+            <dd>Head of Global Investment Banking</dd>
+            <dt>Current roles:</dt>
+            <dd>
+              Outside Director (Audit &amp; Supervisory Committee Member), Simplex Holdings, Inc.<br>
+              Executive Advisor, Axil Capital Advisors<br>
+              Executive Advisor, Strategy Advisors Inc.
+            </dd>
+            <dt>Date of birth:</dt><dd>October 11, 1959</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <h2>Biography</h2>
+    <ul>
+      <li>Born in 1959.</li>
+      <li>Joined The Industrial Bank of Japan (now Mizuho Bank) in 1984.</li>
+      <li>At IBJ Securities, secured Kansai Electric Power’s bond mandate – first for a bank-affiliated securities house. [Ref-1]</li>
+      <li>Appointed Executive Officer, Head of Global Capital Markets, Mizuho Securities (2012).</li>
+      <li>In 2015, contributed to Mizuho’s acquisition of RBS’s North American loan assets. [Ref-2]</li>
+      <li>Also in 2015, became Managing Executive Officer at Mizuho Financial Group / Mizuho Securities.</li>
+      <li>No.1 by IPO lead mandates in 2016 (KPMG). [Ref-3]</li>
+      <li>Senior Managing Executive Officer, Head of Global Investment Banking (2017–2021). IFR “Yen Bond House of the Year” winner. [Ref-4]</li>
+      <li>Director, Mizuho Securities USA (from 2018).</li>
+      <li>Led the global M&A alliance with Perella Weinberg Partners (2019). [Ref-6]</li>
+      <li>Global Coordinator, Japan Post Share Sale (3rd tranche). [Ref-7]</li>
+      <li>Vice President &amp; Executive Officer, Mizuho Securities (2021). [Ref-13]</li>
+      <li>July 2022: Director (Audit &amp; Supervisory Committee Member), Simplex Holdings, Inc. (current).</li>
+      <li>Nov 2022: Executive Advisor, Axil Capital Advisors (current).</li>
+      <li>Apr 2023: Executive Advisor, Strategy Advisors Inc. (current).</li>
+    </ul>
+
+    <h2>Awards</h2>
+    <ul>
+      <li>IFR “Yen Bond House of the Year” (2018–2021). [Ref-4]</li>
+      <li>Refinitiv DealWatch “Bond House of the Year” (2021). [Ref-8]</li>
+      <li>RIEF Sustainable Finance Awards – Excellence Prize (2020 &amp; 2021). [Ref-9]</li>
+    </ul>
+
+    <h2>References</h2>
+    <ol class="footnotes">
+      <li>[Ref-1] Nikkei (May 1995); “100 Years of IBJ”.</li>
+      <li>[Ref-2] Reuters: “Mizuho to acquire RBS’s North American loan assets” (2015).</li>
+      <li>[Ref-3] KPMG Japan “IPO Review (H1 2016)”.</li>
+      <li>[Ref-4] IFR “Yen Bond House of the Year” (2018–2021).</li>
+      <li>[Ref-5] RIEF / Nikkin Online: Mizuho top in SDGs bonds (FY2019–FY2021).</li>
+      <li>[Ref-6] Perella Weinberg Partners press release (2019).</li>
+      <li>[Ref-7] Japan MoF / Reuters (May 2019).</li>
+      <li>[Ref-8] Refinitiv DealWatch Awards (2021).</li>
+      <li>[Ref-9] RIEF Sustainable Finance Awards (2020 &amp; 2021).</li>
+      <li>[Ref-10] Asahi Digital Feature (2019).</li>
+      <li>[Ref-11] Nikkei Evening Ad Feature (2020).</li>
+      <li>[Ref-12] Financial Executives Conference (2021).</li>
+      <li>[Ref-13] Mizuho Financial Group, “Executive Personnel Changes” (Mar 22, 2021).</li>
+    </ol>
+  </section>
 </div>
+
 <script>
 function setLang(code){
   document.body.classList.toggle('lang-ja', code==='ja');
   document.body.classList.toggle('lang-en', code==='en');
-  document.documentElement.setAttribute('lang', code==='ja' ? 'ja' : 'en');
+  document.documentElement.setAttribute('lang', code==='ja'?'ja':'en');
 }
 </script>
 </body>
