@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yasuto-hamanishi.github.io/sitemap.xml
